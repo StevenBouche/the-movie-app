@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+    <LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:gravity="center_horizontal">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_tmdb"
+            android:contentDescription="tmdb"
+            android:paddingTop="100dp"
+            android:paddingBottom="100dp"
+            />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/username"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
+            android:theme="@style/Base.Widget.MaterialComponents.TextInputLayout.SearchBox"
+            >
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/usernameEdit"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@android:color/transparent"
+                android:hint="@string/label_input_username"
+                android:tint="@android:color/white"
+                android:textColorHint="@android:color/white"
+                android:textColor="@android:color/white"
+                android:textSize="18sp"
+                android:inputType="text"
+                android:maxLines="1"/>
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/password"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="16dp"
+            android:theme="@style/Base.Widget.MaterialComponents.TextInputLayout.SearchBox"
+            >
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/passwordEdit"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@android:color/transparent"
+                android:hint="@string/label_input_password"
+                android:tint="@android:color/white"
+                android:textColorHint="@android:color/white"
+                android:textColor="@android:color/white"
+                android:textSize="18sp"
+                android:inputType="textPassword"
+                android:maxLines="1"/>
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/submit"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/auth_submit"
+            android:theme="@style/ButtonStyle"
+            app:backgroundTint="@color/colorAccent"
+            android:layout_marginTop="16dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
+            />
+
+
+    </LinearLayout>
+</layout>

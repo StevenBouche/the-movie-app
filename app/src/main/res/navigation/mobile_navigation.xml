@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@+id/navigation_auth">
+
+    <fragment
+        android:id="@+id/navigation_auth"
+        android:name="com.miage.movieapp.ui.authentification.AuthFragment"
+        tools:layout="@layout/fragment_auth" >
+        <action
+            android:id="@+id/action_AuthFragment_to_HomeFragment"
+            app:destination="@+id/navigation_home" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/navigation_home"
+        android:name="com.miage.movieapp.ui.home.HomeFragment"
+        android:label="@string/title_home"
+        tools:layout="@layout/fragment_home">
+        <action
+            android:id="@+id/action_HomeFragment_to_MovieDetailsFragment"
+            app:destination="@+id/navigation_movie_details" >
+        </action>
+
+        <action
+            android:id="@+id/action_HomeFragment_to_ShowAllFragment"
+            app:destination="@+id/navigation_show_all" >
+        </action>
+    </fragment>
+
+    <fragment
+        android:id="@+id/navigation_genres"
+        android:name="com.miage.movieapp.ui.genres.GenresFragment"
+        android:label="@string/title_genre"
+        tools:layout="@layout/fragment_genres">
+        <action
+            android:id="@+id/action_GenresFragment_to_MoviesFragment"
+            app:destination="@+id/navigation_movies"/>
+    </fragment>
+
+    <fragment
+        android:id="@+id/navigation_movies"
+        android:name="com.miage.movieapp.ui.movies.MoviesFragment"
+        tools:layout="@layout/fragment_movies">
+        <argument
+            android:name="genre"
+            app:argType="com.miage.movieapp.models.GenreParcelable" />
+        <action
+            android:id="@+id/action_MoviesFragment_to_MovieDetailsFragment"
+            app:destination="@+id/navigation_movie_details" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/navigation_movie_details"
+        android:name="com.miage.movieapp.ui.moviedetails.MovieDetailsFragment"
+        tools:layout="@layout/fragment_movie_details">
+        <argument
+            android:name="movie"
+            app:argType="com.miage.movieapp.models.MovieParcelable" />
+        <action
+            android:id="@+id/action_MovieDetails_to_MovieReviews"
+            app:destination="@+id/navigation_movie_reviews" />
+        <action
+            android:id="@+id/action_MovieDetails_to_MovieVideo"
+            app:destination="@+id/navigation_youtube" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/navigation_movie_reviews"
+        android:name="com.miage.movieapp.ui.moviereviews.MovieReviewsFragment"
+        tools:layout="@layout/fragment_movie_reviews">
+        <argument
+            android:name="movie"
+            app:argType="com.miage.movieapp.models.MovieParcelable" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/navigation_youtube"
+        android:name="com.miage.movieapp.ui.youtube.YoutubeFragment"
+        android:label="@string/title_movie_youtube"
+        tools:layout="@layout/fragment_youtube">
+        <argument
+            android:name="movieVideo"
+            app:argType="com.miage.movieapp.models.VideoParcelable" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/navigation_notifications"
+        android:name="com.miage.movieapp.ui.notifications.NotificationsFragment"
+        android:label="@string/title_notifications"
+        tools:layout="@layout/fragment_notifications" />
+
+    <fragment
+        android:id="@+id/navigation_about"
+        android:name="com.miage.movieapp.ui.about.AboutFragment"
+        android:label="@string/title_notifications"
+        tools:layout="@layout/fragment_about" />
+
+    <fragment
+        android:id="@+id/navigation_search"
+        android:name="com.miage.movieapp.ui.search.SearchFragment"
+        android:label="@string/title_search"
+        tools:layout="@layout/fragment_search" >
+        <action
+            android:id="@+id/action_SearcFragment_to_MovieDetailsFragment"
+            app:destination="@+id/navigation_movie_details" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/navigation_favorite"
+        android:name="com.miage.movieapp.ui.favorite.FavoriteFragment"
+        android:label="@string/title_favorite"
+        tools:layout="@layout/fragment_favorite" >
+        <action
+            android:id="@+id/action_FavoriteFragment_to_MovieDetailsFragment"
+            app:destination="@+id/navigation_movie_details" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/navigation_show_all"
+        android:name="com.miage.movieapp.ui.showall.ShowAllFragment"
+        tools:layout="@layout/fragment_show_all" >
+        <action
+            android:id="@+id/action_ShowAllFragment_to_MovieDetailsFragment"
+            app:destination="@+id/navigation_movie_details" />
+        <argument
+            android:name="type"
+            app:argType="com.miage.movieapp.models.ShowAllParcelable" />
+    </fragment>
+
+</navigation>

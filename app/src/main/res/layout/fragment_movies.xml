@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout
+    android:id="@+id/moviesContainer"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewmodel"
+            type="com.miage.movieapp.ui.movies.MoviesViewModel" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:elevation="16dp"
+            app:cardBackgroundColor="#455a64"
+            app:cardCornerRadius="8dp"
+            android:layout_margin="16dp"
+            android:transitionName="searchBox"
+            android:focusableInTouchMode="false"
+            >
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <Spinner
+                    android:id="@+id/spinner"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:spinnerMode="dropdown"
+                    android:background="#455a64"
+                    android:popupBackground="#455a64"
+                    android:textColor="@color/colorSecondary"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toStartOf="@+id/searchIcon"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    />
+
+                <ImageView
+                    android:id="@+id/searchIcon"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="end|center_vertical"
+                    android:layout_weight="0"
+                    android:padding="16dp"
+                    app:tint="@android:color/white"
+                    android:src="@drawable/ic_baseline_search_24"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toEndOf="@+id/spinner"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </com.google.android.material.card.MaterialCardView>
+
+
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/moviesRecyclerView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:paddingTop="8dp"
+            app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+            app:spanCount="3"
+            tools:listitem="@layout/movie_item" />
+
+        <ProgressBar
+            android:id="@+id/moviesProgressBar"
+            style="?android:attr/progressBarStyle"
+            android:layout_width="@dimen/progress_bar_size"
+            android:layout_height="@dimen/progress_bar_size"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="@id/moviesRecyclerView"
+            app:layout_constraintEnd_toEndOf="@id/moviesRecyclerView"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="@id/moviesRecyclerView"
+            app:layout_constraintTop_toTopOf="@id/moviesRecyclerView"
+            tools:visibility="visible" />
+
+    </LinearLayout>
+
+</layout>
